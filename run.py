@@ -22,8 +22,19 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('shopping-spree')
 
-start = SHEET.worksheet('start')
 
-data = start.get_all_values()
+def get_finish_data():
+    """
+    Get 'finish' data from the user which indicates
+    how many bags were sold by the brand at the end
+    of the day 
+    """
+    print("Please enter the number of bags sold at the end of each day.\n")
+    print("The data entered should be four numbers, no bigger than 50 each, separated by commas.\n")
+    print("Example: 23, 45, 15, 37"\n)
 
-print(data)
+    data_str = input("Enter your data here: ")
+    print(f"The data provided is {data_str}")
+
+get_finish_data()
+
