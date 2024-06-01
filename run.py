@@ -234,3 +234,30 @@ def print_menu():
 
     for key in menu_options.keys():
         print(key, '--', menu_options[key])
+
+def main():
+    """
+    Run all functions to coordinate the process.
+    """
+    print("Welcome to the Deisgner Brands Sales Data Management System.\n")
+    
+    while True:
+        print_menu()
+        option = input('\nEnter your option here: ')
+
+        if option == '1':
+            # Update end of sales data
+            insert_start_data()
+            finish_data = get_finish_data()
+            sold_data = calculate_sold_data(finish_data)
+            next_available_col_finish = len(SHEET.worksheet("finish").row_values(1)) + 1
+            next_available_col_sold = len(SHEET.worksheet("sold").row_values(1)) + 1
+            update_worksheet(finish_data, "finish", next_available_col_finish)
+            update_worksheet(sold_data, "sold", next_available_col_sold)
+            finish_data, lowest_finish_index = calculate_finish_data()
+            corresponding_data = fetch_corresponding_data(lowest_finish_index)
+            print(f"\nThe following brand: {corresponding_data.upper()}, has sold the most items today with only {finish_data[lowest_finish_index]} items left over!\n")
+      
+
+if __name__ == '__main__':
+    main()
