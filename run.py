@@ -205,3 +205,15 @@ def fetch_lowest_finish_location(lowest_finish_index):
     row_index = lowest_finish_index + 2  # Adjust for 0-based index and header row
     column_index = 1  # 'finish' numbers are in the first column
     return f"A{row_index}"  # Return cell data 
+
+def fetch_corresponding_data(lowest_finish_index):
+    """
+    Fetch the data from the corresponding first row of the 'finish' worksheet
+    based on the index of the lowest 'finish' number.
+    """
+    # Get the 'finish' worksheet
+    finish_worksheet = SHEET.worksheet("finish")
+    # Fetch the data from the first row
+    first_row_data = finish_worksheet.row_values(1)
+    # Return the corresponding data based on the index of the lowest 'finish' number
+    return first_row_data[lowest_finish_index]
