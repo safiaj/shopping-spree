@@ -148,3 +148,23 @@ def add_new_brand_to_inventory():
     add_brand_to_sheets(brand_name, quantities)
 
     print("\nNew inventory added successfully.")
+
+def validate_inventory_data(values):
+    """
+    Validate the entered inventory data.
+    """
+    try:
+        int_values = [int(value) for value in values]
+        if len(values) != 4:
+            raise ValueError(
+                f"Exactly 4 stock quantities required, you provided {len(values)}"
+            )
+        if any(value > 50 for value in int_values):
+            raise ValueError(
+                "Values must be no bigger than 50"
+            )
+    except ValueError as e:
+        print(f"Invalid data: {e}, please try again.\n")
+        return False
+
+    return True
