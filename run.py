@@ -108,3 +108,14 @@ def validate_data(values):
         return False
 
     return True 
+
+def update_worksheet(data, worksheet_name, start_col):
+    """
+    This function gets a list of integers to be inserted into the worksheet, and 
+    updates the worksheet with this data provided.
+    """
+    print(f"\nUpdating {worksheet_name} worksheet...\n")
+    worksheet = SHEET.worksheet(worksheet_name)
+    for i, value in enumerate(data, start=2):  # Start from the second row
+        worksheet.update_cell(i, start_col, value)
+    print(f"{worksheet_name} worksheet updated successfully\n")
