@@ -4,7 +4,7 @@ This application was designed to work as a sales data management system/platform
 
 The user is able to interact with the platform in 3 main ways, to update their end of day sales, to add a new brand to their inventory and to exit the program. The platform takes all this data from  an external Google Spreadsheet.
 
-![Application] "Application")
+![Application](readme-images/platform-menu.png) "Application")
 
 [Link to the live project](https://shopping-spree-aaf5c7927c30.herokuapp.com/)
 
@@ -167,17 +167,30 @@ All python code was ran through several python validators including PEP8 and pyt
 
 **Menu:** 'Run program' option ensures the platform loads properly and the menu is displayed properly. The menu is also displayed after the completion of each option (1-3). The program terminates and provides a confirmation message when option 3 to exit is picked. Enter any data other than what is instructed and an 'Invalid Data' message is displayed and the menu options appear again prompting users to try again.
 
+![Application](readme-images/Option-1-Updating-Spreadsheet.png) "Updating spreadsheet")
+
 
 **Option 1 - Update end of day sales data:** Enter number 1 which confirms a message is displayed with next steps and confirmation that the right sheets on the google spreadsheet will be updated in line with the functionality for this option. 
 **Validation:** Press enter or input one or incorrect lines of data that confirms an error message is displayed explaining that the input data is an invalid option, reminding the user of the menu options and allowing them to re-input correct data. 
 **Functionailty:** Enter valid values, but more values than the items currently sold and an invalid data option appears and a message informing users of the number of values they have entered and what they should be entering. i.e. 'The data entered should be four numbers, no bigger than 50 each, separated by commas.'
 
+![Application](readme-images/Option-1-Functionality.png) "Functionality")
+
+![Application]! (readme-images/Option-1-Invalid-Data.png)"Option 1 Invalid data")
+
 **Option 2 - Add new brand to inventory:** Enter the number 2 then hit enter to confirm that a message is displayed explaining what the user needs to do next, including the required user input and an example.
 **Validation:** Enter more or less than the required amount of details to confirm that an error message is displayed explaining that the input data is invalid, and reminding the user of the requirements and the number of details entered. Enter the correct amount of details with one detail not being a number to confirm that an error message is displayed explaining that the input data is invalid, and also printing out the invalid detail that was entered, along with the requirement that it needs to be a float or an integer.
 **Functionailty:** Enter valid values to confirm that the application displays multiple messages to reassure the user that their request is being processed. A confirmation of the updated spreadsheet is then posted to the user. The googlesheet should be opened to ensure this has pulled through and is displaying the correct data.
 
+![Application]! (readme-images/Option-2-functionality.png) "Option 2 Functionality")
+
+![Application]! (readme-images/Option-2-Invalid-Data.png) "Option 2 Invalid Data")
+
+![Application]! (readme-images/Option-2-Input-Accepted.png) "Option 2 Inputted Accepted")
+
 **Option 3 - Exit:** Type the number 3 and press enter to confirm that the goodbye message is displayed, and the application terminates.
 
+![Application]! (readme-images/Option-3-Exit-Platform.png) "Option 3 Exit Platform")
 
 ###  Further testing
 
