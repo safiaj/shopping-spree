@@ -227,7 +227,7 @@ def print_menu():
           'between 1 and 3\n')
 
     menu_options = {
-        '1': 'Update end of sales data',
+        '1': 'Update end of day sales data',
         '2': 'Add new brand to inventory',
         '3': 'Exit'
     }
