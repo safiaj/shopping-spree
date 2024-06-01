@@ -1,8 +1,8 @@
 # Shopping Spree Application
 
-This application was deisgned to work as a sales data management system/platform to allow the end user to update their inventory system based upon their stock levels. The platform also allows users to add new brands to their inventory ensuring users are able to keep track of their businesses.
+This application was designed to work as a sales data management system/platform to allow the end user to update their inventory system based upon their stock levels. The platform also allows users to add new brands to their inventory ensuring users are able to keep track of their businesses.
 
-The user is able to interact with the the platform in 3 main ways, to update their end of day sales, to add a new brand to their inventory and to exit the program. The platform takes all this data from  an external Google Spreadsheet.
+The user is able to interact with the platform in 3 main ways, to update their end of day sales, to add a new brand to their inventory and to exit the program. The platform takes all this data from  an external Google Spreadsheet.
 
 ![Application] "Application")
 
@@ -16,7 +16,7 @@ User Goals
 
 Developer Goals 
   -	Create a platform that allows for stock taking easily.
-  -	To provide a fun an easy user experience!
+  -	To provide a fun and easy user experience!
 
 
 # User Experience (UX)
@@ -108,7 +108,7 @@ Steps modified from Love Sandwiches Module -
 16. Click Next
 17. Enter a Service Account name, then click Create
 18. In the Role Dropdown box choose Basic > Editor then press Continue
-19. You got taken to the next page, where those options can be left blank, click Done
+19. This will redirect to the next page, where those options can be left blank, click Done
 20. On the next page, click on the Service Account that has been created
 21. On the next page, click on the Keys tab
 22. Click on the Add Key dropdown and select Create New Key
@@ -131,7 +131,7 @@ Now you have your APIs enabled, and have your credentials file downloaded.
 
 
 1. Go to the https://github.com/safiaj/shopping-spree repository 
-2. Click the fork button on the left hand side of the screen (on a macbook) so it may be placed elsewhere based on your device. 
+2. Click the fork button on the left-hand side of the screen (on a macbook) so it may be placed elsewhere based on your device. 
 
 <br>
 
@@ -179,18 +179,18 @@ All python code was ran through several python validators including PEP8 and pyt
 **Option 3 - Exit:** Type the number 3 and press enter to confirm that the goodbye message is displayed, and the application terminates.
 
 
-### LO5 - Further testing
+###  Further testing
 
 I used various devices to ensure the platform worked for most devices on the market including phones, ipads, laptops and computers. From this I was able to also confirm that the platform would only work on Google Chrome.
 
 
-## LO5 - Bugs
+## Bugs
 
-A common issue I encountered was not providing enough information to the user at the platform interface leaving it in a lacklustre state and potentially losing out on providing a excellent user experience. To combat this I decided to add extra functionality in the form of the following code: "print(f"\nThe following brand: {corresponding_data.upper()}, has sold the most items today with only {finish_data[lowest_finish_index]} items left over!\n")" code like this enables users to understand their top seller items quickly and conveniently.
+A common issue I encountered was not providing enough information to the user at the platform interface leaving it in a lacklustre state and potentially losing out on providing an excellent user experience. To combat this I decided to add extra functionality in the form of the following code: "print(f"\nThe following brand: {corresponding_data.upper()}, has sold the most items today with only {finish_data[lowest_finish_index]} items left over!\n")" code like this enables users to understand their top seller items quickly and conveniently.
 
 ## Data model, application features and business logic
 
-The intended project functionality was to create a multi functional program allowing users to access separate areas of the platform. This was done through creating a 'Menu'. We can assume that a business owner needs more than one option when stock/inventory taking and managing. The most vital of these is ensuring accurate measurment of the stock available and sold over a period of time. 
+The intended project functionality was to create a multi-functional program allowing users to access separate areas of the platform. This was done through creating a 'Menu'. We can assume that a business owner needs more than one option when stock/inventory taking and managing. The most vital of these is ensuring accurate measurment of the stock available and sold over a period of time. 
 
 The menu option allows users to go in any order they like. There are no restrictions in going from option 1 - 3 or in any order. 
 
