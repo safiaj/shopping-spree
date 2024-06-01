@@ -257,7 +257,15 @@ def main():
             finish_data, lowest_finish_index = calculate_finish_data()
             corresponding_data = fetch_corresponding_data(lowest_finish_index)
             print(f"\nThe following brand: {corresponding_data.upper()}, has sold the most items today with only {finish_data[lowest_finish_index]} items left over!\n")
-      
+        elif option == '2':
+            # Add new brand to inventory
+            add_new_brand_to_inventory()
+        elif option == '3':
+            # Exit the program
+            print('\nThank You, Goodbye!\n')
+            break
+        else:
+            print('Invalid option')
 
 if __name__ == '__main__':
     main()
