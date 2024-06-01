@@ -64,3 +64,24 @@ def calculate_finish_data():
     # Find the index of the lowest 'finish' number
     lowest_finish_index = finish_data.index(min(finish_data))
     return finish_data, lowest_finish_index
+
+def get_finish_data():
+    """
+    Get 'finish' data from the user which indicates
+    how many items they sold per brand at the end
+    of the day 
+    """
+    while True:
+        print("\nEnter the number of designer items per brand that are left at the end of each day, in the following order: Prada, Louis Vuitton, Chanel, Gucci\n")
+        print("The data entered should be four numbers, no bigger than 50 each, separated by commas.\n")
+        print("Example: 23, 45, 15, 37")
+
+        data_str = input("Please input data here: ")
+    
+        finish_data = data_str.split(",")
+
+        if validate_data(finish_data):
+            print("Input accepted!")
+            break
+
+    return finish_data
