@@ -119,3 +119,32 @@ def update_worksheet(data, worksheet_name, start_col):
     for i, value in enumerate(data, start=2):  # Start from the second row
         worksheet.update_cell(i, start_col, value)
     print(f"{worksheet_name} worksheet updated successfully\n")
+
+def add_new_brand_to_inventory():
+    """
+    Allow the user to add a new brand to the inventory.
+    """
+    print("\nInstructions for adding new inventory:")
+    print("Enter the brand name and initial stock quantity for the new brand.")
+    print("The quantities should be integers, no bigger than 50, separated by commas.")
+    print("Example: Miu Miu, 10, 20, 15, 30")
+
+    while True:
+        inventory_str = input("\nEnter brand name and initial stock quantities here: ")
+        inventory_data = inventory_str.split(",")
+
+        if len(inventory_data) != 5:
+            print("Invalid input format. Please enter the brand name followed by four stock quantities separated by commas.")
+            continue
+
+        brand_name = inventory_data[0].strip()
+        quantities = [value.strip() for value in inventory_data[1:]]
+
+        if validate_inventory_data(quantities):
+            print("Input accepted!")
+            break
+
+    # Add the new brand name to all relevant sheets
+    add_brand_to_sheets(brand_name, quantities)
+
+    print("\nNew inventory added successfully.")
