@@ -1,6 +1,6 @@
 """
 Taken from love sandwiches module -
-imports the entire gspread library so we can access all functions/classses 
+imports the entire gspread library so I can access all functions/classses 
 within it and google auth imports the credentials class 
 which is part of the service account function from google auth libary
 """ 
@@ -22,19 +22,45 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('shopping-spree')
 
-
-def get_finish_data():
+def insert_start_data():
     """
-    Get 'finish' data from the user which indicates
-    how many bags were sold by the brand at the end
-    of the day 
+    Insert start data of '50' into the Google Sheet.
     """
-    print("Please enter the number of bags sold at the end of each day.\n")
-    print("The data entered should be four numbers, no bigger than 50 each, separated by commas.\n")
-    print("Example: 23, 45, 15, 37"\n)
+    start_data = [50] * 4
+    worksheet = SHEET.worksheet("start")
+    next_available_col = len(worksheet.row_values(1)) + 1  # Find the next available column
+    update_worksheet(start_data, "start", next_available_col)
 
-    data_str = input("Enter your data here: ")
-    print(f"The data provided is {data_str}")
+def calculate_finish_data():
+    """
+    Calculate 'finish' data by subtracting sold data from the start.
+    Start data is always set to 50 for current inventory.
+    """
+    start_row = [50] * 4  # Start data is always 50
 
-get_finish_data()
+    sold_sheet = SHEET.worksheet('sold')
+    sold_data = sold_sheet.get_all_values()
+    sold_row = [int(value) for value in sold_data[-1]]
 
+    finish_data = [start - sold for start, sold in zip(start_row, sold_row)]
+
+    # Find the index of the lowest 'finish' number
+    lowest_finish_index = finish_data.index(min(finish_data))
+    return finish_data, lowest_finish_index
+
+def calculate_finish_data():
+    """
+    Calculate 'finish' data by subtracting sold data from the start.
+    Start data is always set to 50 for current inventory.
+    """
+    start_row = [50] * 4  # Start data is always 50
+
+    sold_sheet = SHEET.worksheet('sold')
+    sold_data = sold_sheet.get_all_values()
+    sold_row = [int(value) for value in sold_data[-1]]
+
+    finish_data = [start - sold for start, sold in zip(start_row, sold_row)]
+
+    # Find the index of the lowest 'finish' number
+    lowest_finish_index = finish_data.index(min(finish_data))
+    return finish_data, lowest_finish_index
