@@ -168,3 +168,15 @@ def validate_inventory_data(values):
         return False
 
     return True
+
+def add_brand_to_sheets(brand_name, quantities):
+    """
+    Add the brand name to all relevant sheets.
+    """
+    sheet_names = ["start", "sold", "finish"]
+    for sheet_name in sheet_names:
+        worksheet = SHEET.worksheet(sheet_name)
+        next_available_col = len(worksheet.row_values(1)) + 1
+        worksheet.update_cell(1, next_available_col, brand_name)
+        if sheet_name == "start":
+            update_worksheet(quantities, sheet_name, next_available_col)
