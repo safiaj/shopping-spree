@@ -195,3 +195,13 @@ def calculate_sold_data(finish_row):
         sold_data.append(sold)
 
     return sold_data
+
+def fetch_lowest_finish_location(lowest_finish_index):
+    """
+    Fetch the cell location of the lowest 'finish' number.
+    The cell location is based on the row index and column index (1-indexed).
+    """
+    # Works as the 'finish' worksheet has headers in the first row
+    row_index = lowest_finish_index + 2  # Adjust for 0-based index and header row
+    column_index = 1  # 'finish' numbers are in the first column
+    return f"A{row_index}"  # Return cell data 
