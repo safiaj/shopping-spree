@@ -85,3 +85,26 @@ def get_finish_data():
             break
 
     return finish_data
+
+def validate_data(values):
+    """
+   In the try block, all string values are attempted to be converted into integers. 
+   If any strings cannot be converted into integers, or if there are not exactly 4 values, 
+   a ValueError is raised. Additionally, if any converted value is greater than 50, 
+   a ValueError is also raised.
+    """
+    try:
+        int_values = [int(value) for value in values]
+        if len(values) != 4:
+            raise ValueError(
+                f"Incorrect input, please input 4 figures, you provided {len(values)}"
+            )
+        if any(value > 50 for value in int_values):
+            raise ValueError(
+                "Values must be no bigger than 50"
+            )
+    except ValueError as e:
+        print(f"Invalid input: {e}, please try again.\n")
+        return False
+
+    return True 
