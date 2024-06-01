@@ -180,3 +180,18 @@ def add_brand_to_sheets(brand_name, quantities):
         worksheet.update_cell(1, next_available_col, brand_name)
         if sheet_name == "start":
             update_worksheet(quantities, sheet_name, next_available_col)
+
+
+def calculate_sold_data(finish_row):
+    """
+    Compare finish with start and calculate the sold for each brand/item type.
+    Start data is always set to 50.
+    """
+    start_row = [50] * 4  # Start data is always 50
+
+    sold_data = []
+    for start, finish in zip(start_row, finish_row):
+        sold = start - int(finish)
+        sold_data.append(sold)
+
+    return sold_data
