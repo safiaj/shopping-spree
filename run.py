@@ -217,3 +217,20 @@ def fetch_corresponding_data(lowest_finish_index):
     first_row_data = finish_worksheet.row_values(1)
     # Return the corresponding data based on the index of the lowest 'finish' number
     return first_row_data[lowest_finish_index]
+
+def print_menu():
+    """
+    Print the menu options for the user.
+    """
+    print('\nMenu - Sales Data Management System:\n')
+    print('Please select what you would like to do by entering a number '
+          'between 1 and 3\n')
+
+    menu_options = {
+        '1': 'Update end of sales data',
+        '2': 'Add new brand to inventory',
+        '3': 'Exit'
+    }
+
+    for key in menu_options.keys():
+        print(key, '--', menu_options[key])
